@@ -82,6 +82,7 @@
     <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
+        <text variable="publisher"/>
 
         <choose>
             <if type="article-newspaper article-magazine" match="any">
@@ -360,6 +361,18 @@
   </choose>
 </macro>
 
+<macro name="software">
+    <choose>
+        <if type="software" match="any">
+            <group delimiter=". ">
+                <text value="[computer program]"/>
+                <text variable="version" prefix="Version "/>
+                <text variable="publisher"/>
+            </group>
+        </if>
+    </choose>
+</macro>
+
 <!-- End Additions -->
 
 <bibliography and="text">
@@ -406,6 +419,9 @@
                 </group>
             
             <text macro="secondary-contributors"/>
+
+            <text macro="software"/>   
+
             <text macro="publisher"/>
             
             </group>
